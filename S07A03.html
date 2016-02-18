@@ -1,0 +1,33 @@
+
+<html>
+<head>
+    <title>Numbers Only Field</title>
+</head>
+<body>
+    <form action="#" method="get">
+       <input id="txt" type="text" name="txt">
+   </form>
+    <script>
+        var input = document.getElementById('txt');
+        function check() {
+	       var content = input.value;
+	       var regex = /\D/g;
+	       if (regex.test(content)) {
+		   showError();
+		   input.value = content.replace(regex, '');
+	           }
+            }
+        function changeBackgroundColor(color) {
+	           input.style.backgroundColor = color;
+        }
+        function showError() {
+            changeBackgroundColor('red');
+            setTimeout(function(){
+                changeBackgroundColor('white');
+            }, 200);
+        }
+        input.addEventListener('input', check, false);
+    </script>
+</body>
+</html>
+
